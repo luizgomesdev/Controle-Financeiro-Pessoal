@@ -1,0 +1,25 @@
+{
+  "name": "controle-financeiro-pessoal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -r dotenv/config --experimental-modules app.js"
+  },
+  "type": "module",
+  "repository": "git+https://github.com/luizgomesdev/Controle-Financeiro-Pessoal.git",
+  "keywords": [],
+  "author": "Luiz Gomes <luizgomesdesenvolvimento@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizgomesdev/Controle-Financeiro-Pessoal/issues"
+  },
+  "homepage": "https://github.com/luizgomesdev/Controle-Financeiro-Pessoal#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "winston": "^3.3.3"
+  }
+}
