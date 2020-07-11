@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import logger from "../config/logger.js";
 
 const connectMongoDB = async (DB_URL) => {
   try {
@@ -7,9 +8,9 @@ const connectMongoDB = async (DB_URL) => {
       useUnifiedTopology: true,
     });
 
-    console.log("Conectado ao banco de dados");
-  } catch (erro) {
-    console.log(erro);
+    logger.info("Conectado ao banco de dados");
+  } catch (erro) {    
+    logger.error(`Erro ao conectar no banco de dados! ${erro}`);
   }
 };
 
