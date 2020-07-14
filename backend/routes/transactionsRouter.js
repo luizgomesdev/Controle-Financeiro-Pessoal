@@ -1,8 +1,8 @@
 import express from "express";
-import { teste } from "../controllers/transactionsController.js";
+import { everyMonthRegistred } from "../controllers/transactionsController.js";
 
 const transactionsRouter = express.Router();
 
-transactionsRouter.get("/", teste);
+transactionsRouter.get("/everyMonthRegistred", everyMonthRegistred);
 
 export default transactionsRouter;
