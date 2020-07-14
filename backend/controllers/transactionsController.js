@@ -17,12 +17,12 @@ export const everyMonthRegistred = async (req, res) => {
   }
 };
 
-export const monthlyFilter = async (req, res) => {
+export const dataMonthlyFilter = async (req, res) => {
   try {
     const yearMonth = req.params.yearMonth;
     const response = await transactionModel.find({ yearMonth: yearMonth });
 
-    const totalReleases = response.length;
+    const totalEntries = response.length;
 
     const totalRecipes = response
       .filter((entry) => {
@@ -43,14 +43,43 @@ export const monthlyFilter = async (req, res) => {
     const finalBalance = totalRecipes - totalExpenses;
 
     const object = {
-      totalReleases: formatCurrency(totalReleases),
+      totalEntries: formatCurrency(totalEntries),
       totalRecipes: formatCurrency(totalRecipes),
       totalExpenses: formatCurrency(totalExpenses),
       finalBalance: formatCurrency(finalBalance),
-      releases: response,
+      Entries: response,
     };
 
     res.status(200).send(object);
+  } catch (error) {
+    logger.info(error);
+    res.status(500).send({
+      message: error,
+    });
+  }
+};
+
+export const createEntry = async (req, res) => {
+  try {
+    const { description, value, category, type, date } = req.body;
+
+    date = date.replace("/", "-");
+
+    // const entry = {
+    //   description: description,
+    //   value: parseInt(value),
+    //   category: category,
+    //   year: Number,
+    //   month: Number,
+    //   day: Number,
+    //   yearMonth: String,
+    //   yearMonthDay: String,
+    //   type: type,
+    // };
+
+    // const response = await transactionModel.create(entry);
+
+    res.status(200).send(date);
   } catch (error) {
     logger.info(error);
     res.status(500).send({
