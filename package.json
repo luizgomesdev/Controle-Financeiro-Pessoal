@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config --experimental-modules ./src/server.js"
+    "start": "nodemon -r dotenv/config --experimental-modules server.js"
   },
   "type": "module",
   "repository": "git+https://github.com/luizgomesdev/Controle-Financeiro-Pessoal.git",
@@ -23,5 +23,10 @@
     "nodemon": "^2.0.4",
     "winston": "^3.3.3",
     "winston-mongodb": "^5.0.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "public/"
+    ]
   }
 }
