@@ -10,7 +10,6 @@ import transactionModel from "../models/transactionsModel.js";
 export const everyMonthRegistred = async (req, res) => {
   try {
     const response = await transactionModel.distinct("yearMonth");
-
     res.status(200).send(response);
   } catch (error) {
     logger.info(error);
